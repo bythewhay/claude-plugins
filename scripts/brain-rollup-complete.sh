@@ -22,6 +22,7 @@ fm_set "$log_file" rolled_up "true"
 
 if [ -f "$rollups_file" ]; then
   tmp="$(mktemp)"
+  # -- is required: "- $branch" starts with "-", which grep would otherwise parse as an option.
   grep -vxF -- "- $branch" "$rollups_file" > "$tmp" || true
   mv "$tmp" "$rollups_file"
 fi
