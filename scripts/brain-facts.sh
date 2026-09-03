@@ -18,6 +18,11 @@ source "$script_dir/lib/frontmatter.sh"
 log_file="$vault/projects/$project/branches/$branch/log.md"
 rollups_file="$vault/projects/$project/pending-rollups.md"
 
+# Note: head_sha and the git log/diff sections below always reflect the
+# currently checked-out branch (this script is meant to be run with cwd
+# inside the relevant git repo), not the <branch> argument. <branch> only
+# selects which branch's recorded last_sha (from its log.md) to compare
+# against - it does not change what git history gets reported.
 head_sha="$(git rev-parse HEAD)"
 
 last_sha=""

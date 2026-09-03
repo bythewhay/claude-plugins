@@ -80,9 +80,17 @@ session.
      "Features" section of `index.md`.
    - Instructions to fold in any pending rollups: for each branch
      named in the facts output's `pending-rollups` section, read that
-     branch's `update.md`, merge its content into the appropriate main
-     docs, then run
+     branch's `log.md` (always present - the automatic session-end
+     hook writes it even when `/brain-update` is never run on that
+     branch) and its `update.md` if it exists. If only `log.md` is
+     present, synthesize the rollup content from the git facts and
+     commit messages it contains instead of treating `update.md` as
+     required. Merge whatever content results into the appropriate
+     main docs, then run
      `bash "$CLAUDE_PLUGIN_ROOT/scripts/brain-rollup-complete.sh" "$vault" "$project" "<branch>"`.
+     If that script (or any other script the subagent runs) exits
+     non-zero, stop and report the failure to the user rather than
+     continuing silently.
    - Instructions to consider whether anything learned is generalizable
      across projects (the same applicable/durable/legible bar used for
      Claude's own memory files) - if so, add or update a file under
