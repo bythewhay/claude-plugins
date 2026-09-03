@@ -22,4 +22,11 @@ assert_eq "$count_after" "1" "brain-commit.sh should create exactly one commit"
 last_msg="$(git -C "$vault" log -1 --format=%s)"
 assert_eq "$last_msg" "add note" "commit message should match what was passed"
 
+plain_dir="$(mktemp -d)"
+trap 'rm -rf "$vault" "$plain_dir"' EXIT
+if bash "$root/scripts/brain-commit.sh" "$plain_dir" "should fail" 2>/dev/null; then
+  echo "FAIL: expected non-zero exit for non-git vault" >&2
+  exit 1
+fi
+
 pass "brain-commit.sh"
