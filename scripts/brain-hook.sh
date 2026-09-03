@@ -62,18 +62,23 @@ EOF
     fi
   fi
 
+  # prev_last_sha is only non-empty on a branch's second-or-later hook run.
+  # A merge that lands during a branch's very first hook run (no prior
+  # log.md yet) is a deliberate, permanent miss: scanning on the first run
+  # would trivially flag the parent branch as "just merged," since the
+  # parent's last commit is always an ancestor of a branch just cut from
+  # it. Do not "fix" this by scanning on the first run — that reintroduces
+  # the branch-off false-positive bug.
   if [ -n "$prev_last_sha" ]; then
-    local branches_dir rollups_file other_dir other_branch other_log
+    local branches_dir rollups_file other_log other_branch
     local other_rolled_up other_last
     branches_dir="$vault/projects/$project/branches"
     rollups_file="$vault/projects/$project/pending-rollups.md"
     if [ -d "$branches_dir" ]; then
-      for other_dir in "$branches_dir"/*/; do
-        [ -d "$other_dir" ] || continue
-        other_branch="$(basename "$other_dir")"
+      while IFS= read -r other_log; do
+        other_branch="${other_log#"$branches_dir"/}"
+        other_branch="${other_branch%/log.md}"
         [ "$other_branch" != "$branch" ] || continue
-        other_log="$other_dir/log.md"
-        [ -f "$other_log" ] || continue
         other_rolled_up="$(fm_get "$other_log" rolled_up)"
         [ "$other_rolled_up" = "true" ] && continue
         other_last="$(fm_get "$other_log" last_sha)"
@@ -88,12 +93,12 @@ EOF
             echo "- $other_branch" >> "$rollups_file"
           fi
         fi
-      done
+      done < <(find "$branches_dir" -type f -name log.md)
     fi
   fi
 
   bash "$script_dir/brain-commit.sh" "$vault" "auto: session-end $project/$branch"
 }
 
-( main ) 2>>"${BRAIN_HOOK_DEBUG_LOG:-/dev/null}" || true
+( main ) 2>>"${BRAIN_HOOK_DEBUG_LOG:-/dev/null}"
 exit 0
