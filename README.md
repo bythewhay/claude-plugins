@@ -23,7 +23,16 @@ commit it was installed from. Editing this repo does **not**
 automatically update an already-installed copy - the installed plugin
 is frozen at that snapshot. To ship changes to an installed copy, bump
 the `version` field in **both** `.claude-plugin/plugin.json` and
-`.claude-plugin/marketplace.json` together, then reinstall.
+`.claude-plugin/marketplace.json` together, then run:
+
+```bash
+claude plugin update brain-tools@brain-tools-dev
+```
+
+(`claude plugin install` on an unchanged plugin name reports "already
+installed" and does nothing - `update` is the command that actually
+picks up the bumped version.) A restart of Claude Code is required
+before the update takes effect.
 
 Note: a newly installed or updated plugin's skills only become visible
 to Claude Code sessions started *after* the install/update - not the
