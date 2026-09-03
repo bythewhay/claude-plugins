@@ -1,0 +1,20 @@
+{
+  "name": "brain-tools-dev",
+  "description": "Personal marketplace for the brain-tools plugin",
+  "owner": {
+    "name": "Nicholas Whay",
+    "email": "nswhay@icloud.com"
+  },
+  "plugins": [
+    {
+      "name": "brain-tools",
+      "description": "Session-end git-facts breadcrumbs and a deliberate /brain-update skill for a personal Obsidian project-knowledge vault",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "Nicholas Whay",
+        "email": "nswhay@icloud.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "brain-tools",
+  "description": "Session-end git-facts breadcrumbs and a deliberate /brain-update skill for a personal Obsidian project-knowledge vault",
+  "version": "0.1.0",
+  "author": {
+    "name": "Nicholas Whay",
+    "email": "nswhay@icloud.com"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "knowledge-base",
+    "obsidian",
+    "notes",
+    "hooks"
+  ]
+}
