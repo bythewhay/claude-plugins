@@ -34,6 +34,9 @@ See [[decisions]].
 ## Reference
 See [[reference]].
 
+## Running
+See [[run]].
+
 ## Features
 (none yet)
 EOF
@@ -74,6 +77,22 @@ project: $project
 # Reference
 
 Architecture notes, key files, and gotchas for $project.
+EOF
+
+cat > "$project_dir/run.md" <<EOF
+---
+project: $project
+---
+
+# Run
+
+How to start $project: entry point, arguments, and the exact command.
+
+## Entry Point
+
+## Arguments
+
+## Command
 EOF
 
 cat > "$project_dir/pending-rollups.md" <<EOF

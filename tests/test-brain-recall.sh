@@ -33,6 +33,9 @@ EOF
 cat >> "$project_dir/reference.md" <<'EOF'
 REFERENCE_MARKER: entry point is main.go
 EOF
+cat >> "$project_dir/run.md" <<'EOF'
+RUN_MARKER: node server.js --port 8080
+EOF
 
 mkdir -p "$project_dir/features"
 echo "# Frobnicator" > "$project_dir/features/frobnicator.md"
@@ -44,12 +47,14 @@ assert_file_contains "$out" "frobnicator"
 assert_file_not_contains "$out" "STATUS_MARKER"
 assert_file_not_contains "$out" "DECISIONS_MARKER"
 assert_file_not_contains "$out" "REFERENCE_MARKER"
+assert_file_not_contains "$out" "RUN_MARKER"
 
-# --- full mode: includes status/decisions/reference prose. ---
+# --- full mode: includes status/decisions/reference/run prose. ---
 recall full
 assert_file_contains "$out" "STATUS_MARKER"
 assert_file_contains "$out" "DECISIONS_MARKER"
 assert_file_contains "$out" "REFERENCE_MARKER"
+assert_file_contains "$out" "RUN_MARKER"
 # feature files are listed by name only, not dumped in full
 assert_file_contains "$out" "frobnicator"
 assert_file_not_contains "$out" "# Frobnicator"

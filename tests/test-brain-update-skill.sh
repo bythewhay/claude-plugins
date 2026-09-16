@@ -12,5 +12,6 @@ assert_file_contains "$skill" "brain-facts.sh"
 assert_file_contains "$skill" "brain-commit.sh"
 assert_file_contains "$skill" "brain-rollup-complete.sh"
 assert_file_contains "$skill" "haiku"
+assert_file_contains "$skill" "run.md"
 
 pass "brain-update-skill"

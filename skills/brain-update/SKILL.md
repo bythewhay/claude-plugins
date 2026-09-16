@@ -91,6 +91,17 @@ session.
      If that script (or any other script the subagent runs) exits
      non-zero, stop and report the failure to the user rather than
      continuing silently.
+   - Instructions to check `$vault/projects/$project/run.md` (how to
+     start the program: entry point, arguments, exact command). If it
+     is still the empty scaffolded template (no content under its
+     headings), inspect the repo directly (package.json, Makefile,
+     pyproject.toml, Dockerfile, README, CLI entry scripts, etc.) and
+     fill in the entry point, arguments, and exact command from
+     scratch. If it already has real content, leave it untouched
+     unless this session's brief or facts show that how the program is
+     started actually changed (new/renamed entrypoint, changed launch
+     script, changed CLI flags) - in that case update only the parts
+     that changed.
    - Instructions to consider whether anything learned is generalizable
      across projects (the same applicable/durable/legible bar used for
      Claude's own memory files) - if so, add or update a file under

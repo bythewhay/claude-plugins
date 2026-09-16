@@ -53,8 +53,8 @@ if [ "$mode" = "topics" ]; then
 fi
 
 # mode = full
-echo "--- brain vault: $project (status/decisions/reference) ---"
-for f in status.md decisions.md reference.md; do
+echo "--- brain vault: $project (status/decisions/reference/run) ---"
+for f in status.md decisions.md reference.md run.md; do
   if [ -f "$project_dir/$f" ]; then
     echo
     echo "## $f"
