@@ -2,12 +2,22 @@
 
 A Claude Code plugin that keeps a personal Obsidian project-knowledge
 vault (`~/Source/brain` by default, overridable via `BRAIN_VAULT_PATH`)
-up to date with what happens in your other git repos. It has two
-halves: a session-end hook that automatically appends raw git-facts
+up to date with what happens in your other git repos, and pulls it
+back into future sessions.
+
+**Writing:** a session-end hook automatically appends raw git-facts
 breadcrumbs (commit range, diffstat, merge detection) to each
 project's vault entry with no LLM involvement, and a `/brain-update`
 skill you run deliberately to turn recent work into real synthesized
 notes - status, decisions, feature write-ups, cross-project lessons.
+
+**Reading:** a session-start hook automatically pulls that vault entry
+back into the session - a full recap of status/decisions/reference/
+in-progress branch work on a resumed session, or just a lightweight
+list of what topics exist on a fresh session start (so the model can
+decide what's worth reading in full). A `/brain-recall` skill pulls the
+full notes on demand at any point in a session, without waiting for a
+resume.
 
 ## Install
 

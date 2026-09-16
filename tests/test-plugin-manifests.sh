@@ -19,4 +19,8 @@ assert_eq "$(jq -r '.hooks.SessionEnd[0].hooks[0].command' "$root/hooks/hooks.js
   'bash "${CLAUDE_PLUGIN_ROOT}/scripts/brain-hook.sh"' \
   "hooks.json must wire SessionEnd to brain-hook.sh via CLAUDE_PLUGIN_ROOT"
 
+assert_eq "$(jq -r '.hooks.SessionStart[0].hooks[0].command' "$root/hooks/hooks.json")" \
+  'bash "${CLAUDE_PLUGIN_ROOT}/scripts/brain-session-start.sh"' \
+  "hooks.json must wire SessionStart to brain-session-start.sh via CLAUDE_PLUGIN_ROOT"
+
 pass "plugin-manifests"

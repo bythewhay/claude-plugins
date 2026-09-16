@@ -8,8 +8,8 @@
   "plugins": [
     {
       "name": "brain-tools",
-      "description": "Session-end git-facts breadcrumbs and a deliberate /brain-update skill for a personal Obsidian project-knowledge vault",
-      "version": "0.2.0",
+      "description": "Session-end git-facts breadcrumbs, a deliberate /brain-update skill, and session-start recall (auto + /brain-recall) for a personal Obsidian project-knowledge vault",
+      "version": "0.3.0",
       "source": "./",
       "author": {
         "name": "Nicholas Whay",
