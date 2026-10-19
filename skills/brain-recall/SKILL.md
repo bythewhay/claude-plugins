@@ -26,7 +26,7 @@ recall.
    repo_root="$(git rev-parse --show-toplevel)"
    project="$(basename "$repo_root")"
    branch="$(git rev-parse --abbrev-ref HEAD)"
-   vault="${BRAIN_VAULT_PATH:-$HOME/Source/brain}"
+   vault="${BRAIN_VAULT_PATH:-$HOME/Source/vault}"
    ```
 
 2. **Pull the full notes** (read-only):

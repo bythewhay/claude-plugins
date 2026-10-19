@@ -20,7 +20,7 @@ main() {
   branch="$(git rev-parse --abbrev-ref HEAD)"
   [ "$branch" != "HEAD" ] || return 0
 
-  vault="${BRAIN_VAULT_PATH:-$HOME/Source/brain}"
+  vault="${BRAIN_VAULT_PATH:-$HOME/Source/vault}"
   [ -d "$vault/.git" ] || return 0
 
   script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

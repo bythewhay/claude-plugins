@@ -1,7 +1,7 @@
 # brain-tools
 
 A Claude Code plugin that keeps a personal Obsidian project-knowledge
-vault (`~/Source/brain` by default, overridable via `BRAIN_VAULT_PATH`)
+vault (`~/Source/vault` by default, overridable via `BRAIN_VAULT_PATH`)
 up to date with what happens in your other git repos, and pulls it
 back into future sessions.
 
