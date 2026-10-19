@@ -972,7 +972,7 @@ File: `.claude-plugin/plugin.json`
   "version": "0.1.0",
   "author": {
     "name": "Nicholas Whay",
-    "email": "nswhay@icloud.com"
+    "email": "169461794+bythewhay@users.noreply.github.com"
   },
   "license": "UNLICENSED",
   "keywords": [
@@ -991,7 +991,7 @@ File: `.claude-plugin/marketplace.json`
   "description": "Personal marketplace for the brain-tools plugin",
   "owner": {
     "name": "Nicholas Whay",
-    "email": "nswhay@icloud.com"
+    "email": "169461794+bythewhay@users.noreply.github.com"
   },
   "plugins": [
     {
@@ -1001,7 +1001,7 @@ File: `.claude-plugin/marketplace.json`
       "source": "./",
       "author": {
         "name": "Nicholas Whay",
-        "email": "nswhay@icloud.com"
+        "email": "169461794+bythewhay@users.noreply.github.com"
       }
     }
   ]
@@ -1235,7 +1235,7 @@ ls -la ~/Source/brain   # confirm it's still empty before initializing
 cd ~/Source/brain
 git init
 git config user.name "Nicholas Whay"
-git config user.email "nswhay@icloud.com"
+git config user.email "169461794+bythewhay@users.noreply.github.com"
 echo "# Brain" > README.md
 git add README.md
 git commit -m "Initialize brain vault"

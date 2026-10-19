@@ -3,7 +3,7 @@
   "description": "Personal marketplace for the brain-tools plugin",
   "owner": {
     "name": "Nicholas Whay",
-    "email": "nswhay@icloud.com"
+    "email": "169461794+bythewhay@users.noreply.github.com"
   },
   "plugins": [
     {
@@ -13,7 +13,7 @@
       "source": "./",
       "author": {
         "name": "Nicholas Whay",
-        "email": "nswhay@icloud.com"
+        "email": "169461794+bythewhay@users.noreply.github.com"
       }
     }
   ]
