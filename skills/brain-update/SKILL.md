@@ -106,6 +106,16 @@ session.
      across projects (the same applicable/durable/legible bar used for
      Claude's own memory files) - if so, add or update a file under
      `$vault/lessons/`.
+   - This vault follows [Open Knowledge Format v0.2](https://okf.md/):
+     every file the subagent writes or edits (other than `index.md` and
+     `log.md`, which are reserved OKF filenames with their own
+     conventions) must carry a `type:` frontmatter field matching its
+     kind - `status`, `decisions`, `reference`, `run`, `feature`, or
+     `update` - alongside any existing frontmatter keys, never
+     replacing them. Any link the subagent adds between vault files
+     (e.g. under index.md's Features section) must be a standard
+     Markdown link (`[Title](file.md)`), never an Obsidian-style
+     `[[wikilink]]`.
    - A final instruction to run
      `bash "$CLAUDE_PLUGIN_ROOT/scripts/brain-commit.sh" "$vault" "<a descriptive commit message>"`
      once all edits are made.
@@ -114,6 +124,7 @@ session.
    if it doesn't already exist:
    ```markdown
    ---
+   type: update
    project: <project>
    branch: <branch>
    ---
