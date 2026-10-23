@@ -19,14 +19,19 @@ assert_file_exists "$proj/pending-rollups.md"
 [ -d "$proj/features" ] || { echo "FAIL: expected features/ dir" >&2; exit 1; }
 
 assert_file_contains "$proj/index.md" "project: demo-project"
-assert_file_contains "$proj/index.md" "[[run]]"
+assert_file_contains "$proj/index.md" "[run](run.md)"
+assert_file_contains "$proj/status.md" "type: status"
 assert_file_contains "$proj/status.md" "## Current Focus"
+assert_file_contains "$proj/decisions.md" "type: decisions"
 assert_file_contains "$proj/decisions.md" "# Decisions"
+assert_file_contains "$proj/reference.md" "type: reference"
 assert_file_contains "$proj/reference.md" "# Reference"
+assert_file_contains "$proj/run.md" "type: run"
 assert_file_contains "$proj/run.md" "# Run"
 assert_file_contains "$proj/run.md" "## Entry Point"
 assert_file_contains "$proj/run.md" "## Arguments"
 assert_file_contains "$proj/run.md" "## Command"
+assert_file_contains "$proj/pending-rollups.md" "type: pending-rollups"
 assert_file_contains "$proj/pending-rollups.md" "# Pending Rollups"
 
 # Idempotency: existing content must survive a second run.

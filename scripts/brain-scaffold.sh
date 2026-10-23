@@ -26,16 +26,16 @@ project: $project
 # $project
 
 ## Status
-See [[status]].
+See [status](status.md).
 
 ## Decisions
-See [[decisions]].
+See [decisions](decisions.md).
 
 ## Reference
-See [[reference]].
+See [reference](reference.md).
 
 ## Running
-See [[run]].
+See [run](run.md).
 
 ## Features
 (none yet)
@@ -43,6 +43,7 @@ EOF
 
 cat > "$project_dir/status.md" <<EOF
 ---
+type: status
 project: $project
 updated: $(date +%Y-%m-%d)
 ---
@@ -60,6 +61,7 @@ EOF
 
 cat > "$project_dir/decisions.md" <<EOF
 ---
+type: decisions
 project: $project
 ---
 
@@ -71,6 +73,7 @@ EOF
 
 cat > "$project_dir/reference.md" <<EOF
 ---
+type: reference
 project: $project
 ---
 
@@ -81,6 +84,7 @@ EOF
 
 cat > "$project_dir/run.md" <<EOF
 ---
+type: run
 project: $project
 ---
 
@@ -97,6 +101,7 @@ EOF
 
 cat > "$project_dir/pending-rollups.md" <<EOF
 ---
+type: pending-rollups
 project: $project
 ---
 
